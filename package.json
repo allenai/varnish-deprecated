@@ -43,11 +43,11 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "build": "yarn shellac:build && npm run compile && npm run dist",
+    "build": "yarn shellac-build && npm run compile && npm run dist",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit.js",
     "compile": "antd-tools run compile",
-    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ _site && npm run site:test",
+    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ _site && npm run site-test",
     "deploy": "bisheng gh-pages --push-only",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
@@ -76,9 +76,9 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false",
-    "shellac:build": "yarn tsc --project shellac/tsconfig.json && node shellac/build.js && yarn shellac:optimize",
-    "shellac:optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
+    "site-test": "jest --config .jest.site.js --cache=false",
+    "shellac-build": "yarn tsc --project shellac/tsconfig.json && node shellac/build.js && yarn shellac-optimize",
+    "shellac-optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
   },
   "husky": {
     "hooks": {

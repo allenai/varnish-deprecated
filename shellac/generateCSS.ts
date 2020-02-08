@@ -1,5 +1,5 @@
 import { StyleVariables, Style } from './styleVariables';
-import { DefaultVarnishTheme } from '../components/style/themes/varnish/DefaultVarnishTheme';
+import { Theme } from '../components/style/themes/varnish/Theme';
 import { getFontImportsURL } from '../components/style/themes/varnish/typography';
 
 /**
@@ -7,7 +7,7 @@ import { getFontImportsURL } from '../components/style/themes/varnish/typography
  */
 // eslint-disable-next-line import/prefer-default-export
 export function generateCSS() {
-    const vars = StyleVariables.fromTheme(DefaultVarnishTheme, Style.CSS);
+    const vars = StyleVariables.fromTheme(Theme.default, Style.CSS);
     return `
 @import "${getFontImportsURL()}";
 

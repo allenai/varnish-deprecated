@@ -9,16 +9,6 @@
 // eslint-disable-next-line import/prefer-default-export
 export const zIndex = {
     fixedTable: 'auto',
-    bgLayer1: 1,
-    bgLayer2: 2,
-    bgLayer3: 3,
-    bgLayer4: 4,
-    bgLayer5: 5,
-    bgLayer6: 6,
-    bgLayer7: 7,
-    bgLayer8: 8,
-    bgLayer9: 9,
-    bgLayer10: 10,
     backTop: 10,
     affix: 10,
     badge: 10,

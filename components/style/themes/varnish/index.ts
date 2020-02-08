@@ -1,2 +1,2 @@
-export * from './DefaultVarnishTheme';
+export * from './Theme';
 export * from './ThemeProvider';

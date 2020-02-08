@@ -1,14 +1,14 @@
 import React from 'react';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
-import { DefaultVarnishTheme } from './DefaultVarnishTheme';
+import { Theme, VarnishTheme } from './Theme';
 
 // eslint-disable-next-line import/prefer-default-export
 export const ThemeProvider = (props: {
-    theme?: typeof DefaultVarnishTheme;
+    theme?: VarnishTheme;
     children: React.ReactNode | React.ReactNodeArray;
 }) => {
-    const vTheme = props.theme || DefaultVarnishTheme;
+    const vTheme = props.theme || Theme.default;
 
     return (
         <SCThemeProvider theme={vTheme}>

@@ -1,3 +1,4 @@
+import { Dictionary } from '../../../_util/varnish/base';
 import { animation } from './animation';
 import { breakpoints } from './breakpoints';
 import { button } from './button';
@@ -9,9 +10,10 @@ import { spacing } from './spacing';
 import { typography } from './typography';
 import { zIndex } from './zIndex';
 
-export { Color, RGB };
-
-export const DefaultVarnishTheme = {
+// when adding more, consider what material and ant have done:
+// https://material-ui.com/customization/default-theme/
+// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+const Default = {
     animation,
     breakpoints,
     button,
@@ -23,8 +25,12 @@ export const DefaultVarnishTheme = {
     spacing,
     typography,
     zIndex,
+}
 
-    // when adding more, consider what material and ant have done:
-    // https://material-ui.com/customization/default-theme/
-    // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-};
+export type VarnishTheme = typeof Default;
+
+export const Theme: Dictionary<VarnishTheme> = {
+    default: Default,
+}
+
+export { Color, RGB };

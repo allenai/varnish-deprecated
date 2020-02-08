@@ -1,6 +1,5 @@
-import { DefaultVarnishTheme } from '../components/style/themes/varnish/DefaultVarnishTheme';
+import { VarnishTheme, Color } from '../components/style/themes/varnish/Theme';
 import { Spacing, Breakpoint } from '../components/style/themes/varnish/spacing';
-import { Color } from '../components/style/themes/varnish/colors';
 
 /**
  * This is a helper function that flattens all theme variables into an array of
@@ -81,8 +80,6 @@ function toStyleVarName(name: string, style: Style = Style.CSS) {
 
     return `${prefix}${formattedName}`;
 }
-
-type VarnishTheme = typeof DefaultVarnishTheme;
 
 /**
  * The StyleVariables class is used to dynamically map the Varnish theme
