@@ -3,14 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { palette } from '../style/themes/varnish/palette';
 import { Color } from '../style/themes/varnish/colors';
-/*
-    NOTE: This must import `ExternalLink` individually, instead of using the
-    barrel file (i.e. `import { ExternalLink } from './link'`), as otherwise
-    `react-router-dom` is required by all users of the `Footer`. This ensures
-    sites that use an alternative router (i.e. those powered by say, NextJS)
-    to be able to use the `Footer`.
-*/
-import { ExternalLink } from '../link/ExternalLink';
+import { contrastLinkColorStyles } from '../link';
 import Layout, { LayoutVariant, LayoutContext }  from '../layout';
 
 export type FooterVariant = 'default' | 'dark';
@@ -50,21 +43,17 @@ export class Footer extends React.PureComponent<Props> {
                             this.props.children
                         ) : (
                             <span>
-                                <ExternalLink contrast={contrast} href="https://allenai.org">
+                                <a href="https://allenai.org">
                                     © The Allen Institute for Artificial Intelligence
-                                </ExternalLink>{' '}
+                                </a>{' '}
                                 - All Rights Reserved |{' '}
-                                <ExternalLink
-                                    contrast={contrast}
-                                    href="https://allenai.org/privacy-policy.html">
+                                <a href="https://allenai.org/privacy-policy.html">
                                     Privacy Policy
-                                </ExternalLink>{' '}
+                                </a>{' '}
                                 |{' '}
-                                <ExternalLink
-                                    contrast={contrast}
-                                    href="https://allenai.org/terms.html">
+                                <a href="https://allenai.org/terms.html">
                                     Terms of Use
-                                </ExternalLink>
+                                </a>
                             </span>
                         )}
                     </StyledFooter>
@@ -87,5 +76,11 @@ const StyledFooter = styled(Layout.Footer)<{ contrast?: boolean; layout?: Layout
         color: ${({ theme, contrast }) =>
             contrast ? theme.palette.text.contrast : theme.palette.text.default};
         text-align: ${({ layout }) => (layout !== 'app' ? 'center' : null)};
+
+        a[href] {
+            ${({ contrast }) =>
+                contrast ? contrastLinkColorStyles() : null
+            };
+        }
     }
 `;

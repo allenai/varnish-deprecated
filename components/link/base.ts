@@ -1,28 +1,14 @@
 import { css } from 'styled-components';
 
-export interface BaseLinkProps {
-    active?: boolean;
-    contrast?: boolean;
-}
-
-// eslint-disable-next-line no-unused-vars
-export function baseLinkStyles(_: BaseLinkProps) {
-    return css<BaseLinkProps>`
-        color: ${({ theme, active, contrast }) =>
+// eslint-disable-next-line import/prefer-default-export
+export function contrastLinkColorStyles() {
+    return css<{active?: boolean}>`
+        color: ${({ theme, active }) =>
             // eslint-disable-next-line no-nested-ternary
-            active
-                ? contrast
-                    ? theme.link.contrastActiveColor
-                    : theme.link.activeColor
-                : contrast
-                ? theme.link.contrastColor
-                : theme.link.color};
-        text-decoration: ${({ theme }) => theme.link.decoration};
+            active ? theme.link.contrastActiveColor : theme.link.contrastColor};
 
         &:hover {
-            color: ${({ theme, contrast }) =>
-                contrast ? theme.link.hover.contrastColor : theme.link.hover.color};
-            text-decoration: ${({ theme }) => theme.link.hover.decoration};
+            color: ${({ theme }) => theme.link.hover.contrastColor};
         }
     `;
 }
