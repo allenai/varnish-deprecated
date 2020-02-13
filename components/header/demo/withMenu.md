@@ -8,11 +8,11 @@ Header inside a layout with a logo, menu, and content.
 
 ```jsx
 import styled from 'styled-components';
+import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Header, HeaderColumns, HeaderTitle } from '..'; // TODO: point this at varnish
 import { AI2Logo } from '../../logos'; // TODO: point this at varnish
 import Layout from '../../layout'; // TODO: point this at varnish
 import Menu from '../../menu'; // TODO: point this at varnish
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 
 const MenuArea = styled.div`
   justify-self: right;
