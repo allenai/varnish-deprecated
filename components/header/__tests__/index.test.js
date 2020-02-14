@@ -7,7 +7,7 @@ import { Header, HeaderColumns, HeaderTitle } from '..';
 import { DefaultAppLayoutProvider } from '../../layout';
 import { ThemeProvider } from '../../style/themes/varnish';
 
-describe('Footer', () => {
+describe('Header', () => {
   mountTest(Header);
   rtlTest(Header);
 
