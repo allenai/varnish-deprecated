@@ -1,7 +1,7 @@
 name: Automatic Rebase
 # https://github.com/marketplace/actions/automatic-rebase
 
-on: 
+on:
   issue_comment:
     types: [created]
 
@@ -11,11 +11,7 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/rebase')
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
     - uses: actions/checkout@master
-=======
-    - uses: actions/checkout@v2
->>>>>>> c19685e0ea1be170025e91b33d1371cd39fa7dd1
       with:
         fetch-depth: 0
     - name: Automatic Rebase
