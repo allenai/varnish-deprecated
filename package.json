@@ -15,11 +15,11 @@
   ],
   "homepage": "http://ant.design/",
   "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
+    "url": "https://github.com/allenai/ant-design/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "https://github.com/allenai/ant-design"
   },
   "license": "MIT",
   "contributors": [

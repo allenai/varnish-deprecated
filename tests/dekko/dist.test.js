@@ -4,7 +4,7 @@ const chalk = require('chalk');
 $('dist')
   .isDirectory()
   .hasFile('antd-with-locales.js')
-  // .hasFile('antd-with-locales.min.js') // TODO: I am not sure why this is failing, but we should put it back asap
+  .hasFile('antd-with-locales.min.js')
   .hasFile('antd.css')
   .hasFile('antd.min.css')
   .hasFile('antd.js')
