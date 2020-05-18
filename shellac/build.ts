@@ -12,7 +12,11 @@ import { generateLESS } from './generateLESS';
 // but should be refined in the near future.
 import { svgs } from './server';
 
-const distPath = path.join(__dirname, '..', 'dist');
+// This is a little whacky. We use Shellac to generate the LESS that our modified
+// fork of `ant-design` depends on. We put this in `dist_varnish` instead of
+// `dist` as the build tooling from `ant-design` clears out `dist` as part of it's
+// build process.
+const distPath = path.join(__dirname, '..', 'dist_varnish');
 if (!fs.existsSync(distPath)) {
   fs.mkdirSync(distPath);
 }

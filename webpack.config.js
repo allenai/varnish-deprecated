@@ -64,9 +64,23 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
   });
 }
 
-const webpackConfig = getWebpackConfig(false);
-const webpackDarkConfig = getWebpackConfig(false);
-const webpackCompactConfig = getWebpackConfig(false);
+function fixEntryPointNames(configs) {
+  return configs.map(config => {
+    const entryPoints = {};
+    Object.entries(config.entry).forEach(([name, entryConfig]) => {
+      entryPoints[name.replace(/^@allenai\//, '')] = entryConfig;
+    });
+    return Object.assign(config, { entry: entryPoints });
+  });
+}
+
+const webpackConfig = fixEntryPointNames(getWebpackConfig(false));
+
+// HACK(codeviking): For some reason the dark and compact themes cause some
+// obscure webpack related error when running `npm dist`. We don't use them
+// so we can go ahead and remove them.
+// const webpackDarkConfig = fixEntryPointNames(getWebpackConfig(false));
+// const webpackCompactConfig = getWebpackConfig(false);
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
@@ -91,8 +105,10 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     }
   });
 
-  processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
-  processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
+  //   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
+  //   processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
 }
 
-module.exports = [...webpackConfig, ...webpackDarkConfig, ...webpackCompactConfig];
+// module.exports = [...webpackConfig, ...webpackDarkConfig, ...webpackCompactConfig];
+
+module.exports = webpackConfig;
