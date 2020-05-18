@@ -4,8 +4,8 @@ const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
-const darkVars = require('./scripts/dark-vars');
-const compactVars = require('./scripts/compact-vars');
+//const darkVars = require('./scripts/dark-vars');
+//const compactVars = require('./scripts/compact-vars');
 
 const { webpack } = getWebpackConfig;
 
@@ -34,6 +34,7 @@ function externalMoment(config) {
   };
 }
 
+/*
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -63,6 +64,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     config.plugins.push(new IgnoreEmitPlugin(themeReg));
   });
 }
+*/
 
 function fixEntryPointNames(configs) {
   return configs.map(config => {
@@ -105,8 +107,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     }
   });
 
-  //   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
-  //   processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
+  // processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
+  // processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
 }
 
 // module.exports = [...webpackConfig, ...webpackDarkConfig, ...webpackCompactConfig];
