@@ -12,7 +12,7 @@ import { generateLESS } from './generateLESS';
 // but should be refined in the near future.
 import { svgs } from './server';
 
-const distPath = path.join(__dirname, '..', 'dist_varnish');
+const distPath = path.join(__dirname, '..', 'dist');
 
 const lessPath = path.join(distPath, 'varnish.less');
 fs.writeFileSync(lessPath, generateLESS(), 'utf-8');

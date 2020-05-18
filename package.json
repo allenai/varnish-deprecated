@@ -1,19 +1,8 @@
 {
-  "name": "antd",
+  "name": "@allenai/varnish",
   "version": "4.2.2",
-  "description": "An enterprise-class UI design language and React components implementation",
-  "keywords": [
-    "ant",
-    "component",
-    "components",
-    "design",
-    "framework",
-    "frontend",
-    "react",
-    "react-component",
-    "ui"
-  ],
-  "homepage": "http://ant.design/",
+  "description": "An AI2 branded fork of the ant-design component library.",
+  "homepage": "https://varnish.apps.allenai.org",
   "bugs": {
     "url": "https://github.com/allenai/ant-design/issues"
   },
@@ -25,10 +14,6 @@
   "contributors": [
     "ant"
   ],
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/ant-design"
-  },
   "files": [
     "dist",
     "lib",
@@ -46,7 +31,6 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "api-collection": "antd-tools run api-collection",
-    "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "build": "npm run compile && npm run dist",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
@@ -56,7 +40,7 @@
     "predist": "npm run version",
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
-    "compile": "npm run shellac-build && antd-tools run compile",
+    "compile": "npm run shellac:build && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run compile && npm run site",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
@@ -72,11 +56,9 @@
     "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
     "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
     "lint:tsc": "npm run tsc -- --noEmit",
-    "pre-publish": "npm run check-commit && npm run test-all",
+    "prepublishOnly": "npm run check-commit || exit 0 && npm run dist && npm run compile && antd-tools run package-diff && npm run test-all",
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
-    "pub": "npm run version && antd-tools run pub",
-    "prepublishOnly": "antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
@@ -90,8 +72,8 @@
     "tsc": "tsc",
     "site:test": "jest --config .jest.site.js --cache=false",
     "version": "node ./scripts/generate-version",
-    "shellac-build": "npm run tsc -- --project shellac/tsconfig.json && node shellac/build.js && npm run shellac-optimize",
-    "shellac-optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
+    "shellac:build": "npm run tsc -- --project shellac/tsconfig.json && node shellac/build.js && npm run shellac:optimize",
+    "shellac:optimize": "postcss dist/shellac.css > dist/shellac.min.css"
   },
   "husky": {
     "hooks": {
@@ -306,6 +288,5 @@
   ],
   "tnpm": {
     "mode": "npm"
-  },
-  "title": "Ant Design"
+  }
 }

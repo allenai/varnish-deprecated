@@ -976,4 +976,10 @@ with varnish... would make code cleaner, but merges harder */
 @result-extra-margin: 32px 0 0 0;
 
 // Varnish overrides
-@import '../../../dist_varnish/varnish';
+// Note, this file is currently generated from the Varnish theme, for which the source of truth
+// is a series of JavaScript files in `components/style/themes/varnish`. If it doesn't exist
+// run `npm run dist` to generate it.
+// TODO (codeviking): This feels a little awkward. Either all `less` files should be generated,
+// or we should just use less as the source of truth for our theme. Having two ways in one repo
+// to represent a theme and style components seems complicated.
+@import '../../../dist/varnish';
