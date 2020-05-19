@@ -15,8 +15,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="release.py", description="A utility for releasing the " +
                                                                     "@allenai/varnish library.")
     parser.add_argument("--dry-run", action="store_true", help="If specified nothing will be published.")
-    parser.add_argument("--dirty", action="store_true", help="If specified the check that ensures " +
-                                                             "there's no uncommited changes is skipped.")
+    parser.add_argument("--skip-check-commit", action="store_true",
+                        help="If specified the the `check-commit` step is skipped")
 
     args = parser.parse_args()
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # There's a few things we omit `check-git` and `package-diff` as AFAICT they're duplicative
     # of `check-commit`.
     cmds = [ "check-commit", "test-all", "version", "compile", "dist" ]
-    if args.dirty:
+    if args.skip_check_commit:
         cmds = [ c for c in cmds if c != "check-commit" ]
 
     for cmd in cmds:
