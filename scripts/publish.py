@@ -19,6 +19,9 @@ if __name__ == "__main__":
     parser.add_argument("--skip-check-commit", action="store_true",
                         help="If specified the the `check-commit` step is skipped")
     parser.add_argument("--skip-tests", action="store_true", help="If specified tests are skipped.")
+    parser.add_argument("--pack", action="store_true", help="If specified an archive is prepared " +
+                                                            "instead of publishing to a remote " +
+                                                            "repository.")
 
     args = parser.parse_args()
 
@@ -64,8 +67,11 @@ if __name__ == "__main__":
                 print(f"renamed {os.path.relpath(antd_name, os.getcwd())} -> " +
                       f"{os.path.relpath(varnish_name, os.getcwd())}")
 
-            # Publish to NPM
-            subprocess.check_call([ "npm", "publish", "--dry-run" if args.dry_run else None ])
+            if args.pack:
+                subprocess.check_call([ "npm", "pack" ])
+            else:
+                # Publish to NPM
+                subprocess.check_call([ "npm", "publish", "--dry-run" if args.dry_run else None ])
 
             # Revert the name change
             pkg.seek(0)
