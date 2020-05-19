@@ -22,7 +22,11 @@ if __name__ == "__main__":
 
     root = os.path.join(os.path.dirname(__file__), os.path.pardir)
 
-    cmds = [ "check-commit", "version", "compile", "dist", "test-all" ]
+    # The order of these commands was derived from the original `pre-publish` script and
+    # the order here: https://github.com/ant-design/antd-tools/blob/master/lib/gulpfile.js#L387
+    # There's a few things we omit `check-git` and `package-diff` as AFAICT they're duplicative
+    # of `check-commit`.
+    cmds = [ "check-commit", "test-all", "version", "compile", "dist" ]
     if args.dirty:
         cmds = [ c for c in cmds if c != "check-commit" ]
 
