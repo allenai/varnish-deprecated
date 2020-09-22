@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name: Lighthouse Check
 on: [pull_request]
 
@@ -35,4 +34,3 @@ jobs:
       - run: npm install && npm install -g @lhci/cli@0.4.x
       - run: npm run site
       - run: lhci autorun --upload.target=temporary-public-storage
->>>>>>> 5131c24b79c65a132e4813ed6746852bbb4bb52e
