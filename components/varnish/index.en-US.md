@@ -6,7 +6,7 @@ cols: 1
 cover: https://allenai.org/favicon.ico
 ---
 
-The default Varnish theme, which provides programmatic access to the default values for a colors, typography and other properties related to the user interface.
+The default Varnish theme, which provides programmatic access to the default values for colors, typography and other properties related to the user interface.
 
 ## Example Usage in a Component
 
