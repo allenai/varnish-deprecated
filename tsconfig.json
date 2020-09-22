@@ -3,7 +3,9 @@
     "baseUrl": "./",
     "paths": {
       "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"]
+      "antd/es/*": ["components/*"],
+      "@allenai/varnish": ["components/index.tsx"],
+      "@allenai/varnish/es/*": ["components/*"]
     },
     "strictNullChecks": true,
     "moduleResolution": "node",
