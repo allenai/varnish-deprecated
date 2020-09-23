@@ -7,13 +7,15 @@ title:
 Layout can specify a background Varnish color.
 
 ```jsx
-import { Layout } from '@allenai/varnish';
+import { ThemeProvider, Layout } from '@allenai/varnish';
 
 ReactDOM.render(
-  <Layout bgcolor="B6">
-    Hello Blue World
-    <Layout bgcolor="G6">Hello Green World</Layout>
-  </Layout>,
+  <ThemeProvider>
+    <Layout bgcolor="B6">
+      Hello Blue World
+      <Layout bgcolor="G6">Hello Green World</Layout>
+    </Layout>
+  </ThemeProvider>,
   mountNode,
 );
 ```

@@ -14,12 +14,12 @@ title:
 Classic page layouts.
 
 ```jsx
-import { Layout } from '@allenai/varnish';
+import { Layout, ThemeProvider } from '@allenai/varnish';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
-  <>
+  <ThemeProvider>
     <Layout>
       <Header>Header</Header>
       <Content>Content</Content>
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
-  </>,
+  </ThemeProvider>,
   mountNode,
 );
 ```
