@@ -34,12 +34,12 @@ with varnish... would make code cleaner, but merges harder */
 
 // -------- Colors -----------
 @primary-color: @v-color-b7;
-@info-color: @v-palette-text-info;
-@success-color: @v-palette-text-success;
+@info-color: @v-color-b6;
+@success-color: @v-color-g6;
 @processing-color: @v-color-b7;
-@error-color: @v-palette-text-error;
+@error-color: @v-color-r6;
 @highlight-color: @v-color-r6;
-@warning-color: @v-palette-text-warning;
+@warning-color: @v-color-o6;
 @normal-color: @v-color-n5;
 
 @white: #fff;
@@ -406,22 +406,19 @@ with varnish... would make code cleaner, but merges harder */
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm;
 @input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base:
-  max(
-    (
-      round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
-        @border-width-base
-    ),
-    3
-  );
-@input-padding-vertical-sm:
-  max(
-    round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 -
-      @border-width-base,
-    0
-  );
-@input-padding-vertical-lg:
-  ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) / 10 - @border-width-base;
+@input-padding-vertical-base: max(
+  (
+    round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+      @border-width-base
+  ),
+  3
+);
+@input-padding-vertical-sm: max(
+  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  0
+);
+@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+  10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -736,9 +733,8 @@ with varnish... would make code cleaner, but merges harder */
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: (
-    @tabs-card-height - floor(@font-size-base * @line-height-base)
-  ) / 2 - @border-width-base @padding-md;
+@tabs-card-horizontal-padding: (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2 -
+  @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
