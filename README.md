@@ -1,3 +1,5 @@
+### 🛑  This repository has been deprecated and is no longer maintained, please see [allenai/varnish](https://github.com/allenai/varnish).
+
 <p align="center">
   <a href="https://varnish.allenai.org">
     <img src="./varnish.png" width="200" title="Varnish" alt="Varnish">
