@@ -235,7 +235,7 @@
     "mockdate": "^3.0.0",
     "node-fetch": "^2.6.0",
     "open": "^7.0.3",
-    "postcss": "^7.0.18",
+    "postcss": "^8.3.6",
     "postcss-cli": "^6.1.3",
     "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
